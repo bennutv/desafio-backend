@@ -2,8 +2,8 @@
 
 [x] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
 [x] Rota para Logout (rota autenticada com _JWT_);
-[] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
-[] Rota para exibir o detalhe de uma notí
+[x] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
+[x] Rota para exibir o detalhe de uma notí
 
 #Requisitos
 
@@ -14,5 +14,5 @@
     -   docker-compose up
 
 [] assinalar codigo gerado pelo framework
-[] Criar teste de stress e anexar no projeto evidência de que o projeto aguenta 1000/s
-[] criar teste automatico dentro do projeto
+[] Criar teste de stress e anexar no projeto evidência de que o projeto aguenta 1000/rps
+[x] criar teste automatico dentro do projeto

@@ -1,0 +1,12 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 1
+      arrivalRate: 1000
+  defaults:
+    headers:
+      x-access-token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTU3MjgyMDA5NywiZXhwIjoxNTcyODIzNjk3fQ.sB9zArxA-GZ3dGAv6apkkJPriWmW0vno9220Y7jTZv0'
+scenarios:
+  - flow:
+    - get:
+        url: "/news/list"

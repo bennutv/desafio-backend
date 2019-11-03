@@ -1,7 +1,7 @@
 #TODO
 
-[] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-[] Rota para Logout (rota autenticada com _JWT_);
+[x] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
+[x] Rota para Logout (rota autenticada com _JWT_);
 [] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
 [] Rota para exibir o detalhe de uma notí
 

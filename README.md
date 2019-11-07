@@ -1,32 +1,60 @@
-# Desafio BennuBR de Backend
+Bennu TV
+API desenvolvida para teste de técnico no processo seletivo da equipe Bennu TV.
 
-Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:
+Tecnologias / Metodologias, utilizadas no projeto:
 
-- Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-- Rota para Logout (rota autenticada com _JWT_);
-- Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
-- Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
+- Node.js
+- express.js
+- docker
+- nodemon
+- GitFlow
+- cluster
+- Jwt
 
-## Requisitos
--   Forkar esse desafio e criar o seu projeto (ou workspace) usando a sua versão desse repositório, tão logo acabe o desafio, submeta um pull request.
--   O código precisa rodar em macOS ou Ubuntu (preferencialmente como container Docker)
--   Para executar seu código, deve ser preciso apenas rodar os seguintes comandos:
-    -   git clone \$seu-fork
-    -   cd \$seu-fork
-    -   comando para instalar dependências
-    -   comando para executar a aplicação
--   A API pode ser escrita com ou sem a ajuda de _frameworks_
-    -   Se optar por usar um _framework_ que resulte em _boilerplate code_, assinale no README qual pedaço de código foi escrito por você. Quanto mais código feito por você, mais conteúdo teremos para avaliar.
--   A API precisa suportar um volume de 1000 requisições por segundo em um teste de estresse.
+Pré-requisitos:
 
-## Critério de avaliação
+Antes de mais nada, verifique se você possui os requisitos para rodar o projeto.
 
--   **Organização do código**
--   **Clareza**
--   **Assertividade**
--   **Legibilidade do código**
--   **Segurança**
--   **Histórico de commits**
--   **Escolhas técnicas**
+- Docker-compose
+- node
+- npm
 
-Boa sorte e divirta-se!!!
+Instruções para instalação e configuração:
+
+Essas instruções farão com que você tenha uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
+
+Instalação
+É bem simples, com 4 passos você conseguirá rodar o projeto em sua máquina. Veja:
+
+1) Clone o projeto para sua máquina
+
+git clone https://github.com/victorhugooleal/desafio-backend.git
+
+
+2) Entre na pasta raiz do projeto que você acabou de clonar
+
+cd desafio-backend
+
+3) Rode o comando:
+
+npm i
+
+4) rode o comando:
+
+docker-compose up
+
+Pronto, a API estará rodando em http://localhost:3000
+
+Para rodar o teste de Carga será necessário a instalação do artillery:
+
+npm install -g artillery
+
+para executar o teste basta executar o comando:
+
+artillery run testeCarga.yml
+
+Autor
+Victor Leal - https://www.linkedin.com/in/victor-hugo-leal-46ba74105
+
+Agradecimentos
+Equipe Bennu TV, pela oportunidade.

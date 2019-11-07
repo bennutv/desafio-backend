@@ -1,19 +1,19 @@
 require("dotenv-safe").config();
-var express = require('express');
-var router = express.Router();
-var authentication = require('../utils/authentication');
+const express = require('express');
+const router = express.Router();
+const authentication = require('../utils/authentication');
 
 //Mock news
 const news = require("../static/data/news");
 
 router.get('/list', authentication.verifyJWT, function(req, res) {
-    res.status(200).send(news);
+    res.send(news);
 });
 
 router.get('/:id', authentication.verifyJWT, function(req, res) {
-    var id = req.params.id;
-    var searchedNews = news.find(obj => obj.id == id);
-    res.status(200).send(searchedNews);
+    let id = req.params.id;
+    let searchedNews = news.find(obj => obj.id == id);
+    res.send(searchedNews);
 });
 
 module.exports = router;

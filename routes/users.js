@@ -1,19 +1,21 @@
 require("dotenv-safe").config();
-var express = require('express');
-var router = express.Router();
-var md5 = require('md5');
-var authentication = require('../utils/authentication');
-var jwt = require('jsonwebtoken');
+const express = require('express');
+const router = express.Router();
+const md5 = require('md5');
+const authentication = require('../utils/authentication');
+const jwt = require('jsonwebtoken');
 
 //Mock User
 const user = require("../static/data/users");
 
 router.post('/login', (req, res) => {
   // Valida se ousuário é válido
-  if( user.login == req.body.user && user.pwd == md5(req.body.pwd)){ 
+  let validLogin = user.login == req.body.user;
+  let validPwd = user.pwd == md5(req.body.pwd);
+  if( validLogin && validPwd ){ 
 
     // Pega Id do usuário
-    const userId = user.id;
+    let userId = user.id;
 
     // Cria Token
     const token = jwt.sign({ userId }, process.env.SECRET, {
@@ -32,7 +34,7 @@ router.post('/login', (req, res) => {
 });  
 
 router.get('/logout', authentication.verifyJWT, function(req, res) {
-    res.status(200).send({ 
+    res.send({ 
       auth: false, 
       token: null 
     });

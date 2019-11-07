@@ -5,7 +5,7 @@ config:
       arrivalRate: 1000
   defaults:
     headers:
-      x-access-token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTU3MjgyMDA5NywiZXhwIjoxNTcyODIzNjk3fQ.sB9zArxA-GZ3dGAv6apkkJPriWmW0vno9220Y7jTZv0'
+      x-access-token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTU3MzA5NTIxNSwiZXhwIjoxNTczMDk4ODE1fQ.5VN-Q7KGsSHiRqIu5QJDQ6AHZKFrgCCo2CsDOvz0QSo'
 scenarios:
   - flow:
     - get:

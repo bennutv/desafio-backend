@@ -1,0 +1,25 @@
+{
+    "name": "bennu",
+    "version": "1.0.0",
+    "description": "Desafio backend para a BennuBR",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "matthlobo"
+    },
+    "author": "Matheus Lobo",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "jwt-simple": "^0.5.6",
+        "nodemon": "^2.0.1",
+        "passport": "^0.4.0",
+        "passport-jwt": "^4.0.0",
+        "underscore": "^1.9.1"
+    }
+}

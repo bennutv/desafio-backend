@@ -1,0 +1,12 @@
+config:
+  target: "http://localhost:49160"
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+  defaults:
+    headers:
+      x-access-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc0OTIxNzI4LCJleHAiOjE1NzQ5MjUzMjh9.jVX3r9cZSzn_cpxOX1qfH5eu3x2qZk_ULzdE9Puznoo"
+scenarios:
+  - flow:
+      - get:
+          url: "/noticias"

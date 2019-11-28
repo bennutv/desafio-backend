@@ -11,7 +11,8 @@ require("./router/index")(app);
 require("./router/auth")(app);
 require("./router/noticiais")(app);
 
-let port = 3000;
+const port = 3000;
+
 app.listen(port, () => {
   console.log(`API rodando na porta ${port}`);
 });

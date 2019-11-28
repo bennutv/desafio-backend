@@ -6,6 +6,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+require("./router/index")(app);
 require("./router/auth")(app);
 require("./router/noticiais")(app);
 

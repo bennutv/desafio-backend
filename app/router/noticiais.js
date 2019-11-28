@@ -11,6 +11,7 @@ router.get("/noticias", async (req, res) => {
   let file = path.join(__dirname, "../database/news.json");
   try {
     fs.readFile(file, "utf8", (error, data) => {
+      console.log(req.headers);
       return res.send(data);
     });
   } catch (error) {

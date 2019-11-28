@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const _ = require("lodash");
 const jwt = require("jsonwebtoken");
+const authMiddleware = require("../middlewares/auth");
 const authConfig = require("../config/auth");
 const router = express.Router();
 
@@ -17,7 +18,7 @@ router.post("/login", async (req, res) => {
       if (!user) return res.status(400).send({ error: "User not found" });
 
       const token = jwt.sign({ id: user.id }, authConfig.secret, {
-        expiresIn: 86400
+        expiresIn: 3600 // Tempo de validade do token
       });
 
       return res.send({ name: user.name, email: user.email, token });
@@ -27,4 +28,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/logout", authMiddleware, function(req, res) {
+  res.status(200).redirect("/");
+});
 module.exports = app => app.use("/api", router);

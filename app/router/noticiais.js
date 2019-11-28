@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
@@ -5,6 +7,9 @@ const _ = require("lodash");
 const authMiddleware = require("../middlewares/auth");
 const router = express.Router();
 
+/**
+ * Adicionado a verificação de autenticação do token
+ */
 router.use(authMiddleware);
 
 router.get("/noticias", async (req, res) => {

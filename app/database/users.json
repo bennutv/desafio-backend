@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Raphael Miquelis",
+    "email": "raphaelmiquelis@outlook.com",
+    "password": "bennuTv@2019"
+  },
+  {
+    "id": 2,
+    "name": "João Sergio",
+    "email": "joaosergio@outlook.com",
+    "password": "bennuTv@2018"
+  },
+  {
+    "id": 3,
+    "name": "Joana Santos",
+    "email": "joanasantos@outlook.com",
+    "password": "bennuTv@2017"
+  }
+]

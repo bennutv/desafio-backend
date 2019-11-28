@@ -13,5 +13,5 @@ require("./router/noticiais")(app);
 
 let port = 3000;
 app.listen(port, () => {
-  console.log(`API Rodando na porta ${port}`);
+  console.log(`API rodando na porta ${port}`);
 });

@@ -1,11 +1,11 @@
 config:
-  target: "http://localhost:49160"
+  target: "http://localhost:3000"
   phases:
     - duration: 60 #adicionado o tempo em segundos#
       arrivalRate: 1000 #quantidade de maquinas virtuais para o teste#
   defaults:
     headers:
-      x-access-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc0OTIxNzI4LCJleHAiOjE1NzQ5MjUzMjh9.jVX3r9cZSzn_cpxOX1qfH5eu3x2qZk_ULzdE9Puznoo"
+      x-access-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTc0OTU2ODc4LCJleHAiOjE1NzQ5NjA0Nzh9.OsI51H6FnMRPmWCw5OgsZjpWnh4prndsl5xYLqj90-0"
 scenarios:
   - flow:
       - get:

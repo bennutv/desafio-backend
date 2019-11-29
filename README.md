@@ -51,7 +51,7 @@ Siga os passos abaixo para instalar e realizar o start da API:
 3. `$ npm start`, para executar o projeto.
 4. Será exibida a mensagem: **API rodando na porta 3000** no terminal.
 
-###Rotas
+##Rotas
 
 Seguem todas as rotas da API:
 
@@ -63,7 +63,7 @@ Seguem todas as rotas da API:
 | `http://localhots:3000/api/noticias`     | **GET**  | Rota para exibir todas as notícias, é necessário o token.                                                                                                                                                                            |
 | `http://localhots:3000/api/noticias/:id` | **GET**  | Rota para exibir a notícia com base no **id** passado, é necessário o token.                                                                                                                                                         |
 
-###Dependências
+##Dependências
 
 As dependência utilizadas na API são:
 
@@ -73,7 +73,7 @@ As dependência utilizadas na API são:
 - lodash
 - underscore
 
-###Teste
+##Teste
 
 Caso queira realizar um teste de carga, foi implementado o [Artillery](https://artillery.io/) no projeto. Siga os passos abaixo para realizar o teste.
 

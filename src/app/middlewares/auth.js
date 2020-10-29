@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
-const Messages = require('../../utils/Messages') 
+const Messages = require('../../utils/Messages'); 
+const { validTokens } = require('../controllers/Authentication/AuthUtils');
 
 module.exports = async (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -13,8 +14,14 @@ module.exports = async (req, res, next) => {
 
     try {
         const decoded = await promisify(jwt.verify)(token, process.env.APP_SECRET);
-        req.userID = decoded.id;
-        return next();
+        req.userID = decoded.userID;
+        req.token = token;
+        let index = validTokens.findIndex(e => e.userID === req.userID && e.token === token);
+        if(index > -1) {
+            return next();
+        }else {
+            return res.status(401).json({message: Messages.invalidToken});
+        }   
     }catch(err) {
         return res.status(401).json({message: Messages.invalidToken});
     }

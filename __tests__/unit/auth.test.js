@@ -1,4 +1,4 @@
-const AuthUtils = require('../../src/app/controllers/Authentication/AuthUtils');
+const AuthUtils = require('../../src/app/controllers/Authentication/AuthUtils').AuthUtils;
 
 describe('AuthUtils - Complementary functions of AuthenticationController', () => {
 

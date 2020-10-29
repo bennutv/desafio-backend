@@ -1,6 +1,7 @@
 const SuccessCode = require('../../../utils/SuccessCode');
 const Messages = require('../../../utils/Messages');
-const AuthUtils = require('./AuthUtils');
+const { AuthUtils, validTokens } = require('./AuthUtils');
+
 
 
 class AuthenticationController {
@@ -28,7 +29,17 @@ class AuthenticationController {
     }
 
     onLogout(req, res) {
-        res.status(200).json({message: 'success'})
+        let { token, userID } = req;
+        
+        let index = validTokens.findIndex(e => e.userID === userID && e.token === token);
+
+        if(index > -1) {
+            validTokens.splice(index, 1);
+            res.status(200).json({error: false, message: Messages.userLogout})
+        }else {
+            res.status(200).json({error: false, message: Messages.userAlreadylogout})
+        }
+        
     }
 }
 

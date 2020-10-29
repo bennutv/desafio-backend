@@ -6,7 +6,7 @@ const Messages = require('../../../utils/Messages');
 
 let validTokens = [];
 
-class AuthUtils {
+class _AuthUtils {
     emailIsValid(email) {
         let er = /^[a-zA-Z0-9\._-]+@([a-zA-Z0-9\._-]+\.)[a-zA-Z-0-9]{2,3}$/;
 
@@ -36,9 +36,14 @@ class AuthUtils {
     }
     geenerateToken (id) {
         let token =  jwt.sign({userID: id}, process.env.APP_SECRET, {expiresIn: 86400000});
-        validTokens.push({token: token, timestamp: new Date().getTime()});
+        validTokens.push({userID: id, token: token, timestamp: new Date().getTime()});
         return token;
     }
 }
 
-module.exports = new AuthUtils();
+let AuthUtils = new _AuthUtils();
+
+module.exports = {
+    AuthUtils,
+    validTokens
+};

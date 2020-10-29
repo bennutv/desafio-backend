@@ -23,7 +23,6 @@ class _AuthUtils {
 
     async checkCredentials(email, password) {
         let response = await UsersModel.getUserByEmail(email);
-        console.log("response ==> ", response)
         if(response.error) {
             return {error: true, code: response.code};
         }else {

@@ -1,7 +1,7 @@
 const request = require('supertest');
 const app = require('../../src/app');
 const UsersModel = require('../../src/app/models/UsersModel');
-const AuthUtils = require('../../src/app/controllers/Authentication/AuthUtils').AuthUtils;
+const { AuthUtils } = require('../../src/app/controllers/Authentication/AuthUtils');
 
 describe('Auth', () => {
 

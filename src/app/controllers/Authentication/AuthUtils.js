@@ -3,8 +3,11 @@ const SuccessCode = require('../../../utils/SuccessCode');
 const UsersModel = require('../../models/UsersModel');
 const jwt = require('jsonwebtoken');
 const Messages = require('../../../utils/Messages');
+const fs = require('fs');
+require('dotenv').config({
+    path: '.env'
+});
 
-let validTokens = [];
 
 class _AuthUtils {
     emailIsValid(email) {
@@ -27,22 +30,35 @@ class _AuthUtils {
             return {error: true, code: response.code};
         }else {
             if(response.dataUser.password === password) {
-                return {error: false, code: SuccessCode.userAuthorized, dataUser: response.dataUser.userID};
+                return {error: false, code: SuccessCode.userAuthorized, dataUser: response.dataUser};
             }else {
                 return {error: true, code: ErrorsCode.invalidPassword};
             }
         }
     }
-    geenerateToken (id) {
-        let token =  jwt.sign({userID: id}, process.env.APP_SECRET, {expiresIn: 86400000});
-        validTokens.push({userID: id, token: token, timestamp: new Date().getTime()});
+    async geenerateToken (id) {
+        let timestamp = new Date().getTime();
+        let token =  jwt.sign({userID: id, timestamp: timestamp}, process.env.APP_SECRET, {expiresIn: 86400000});
+        let listValidTokenJSON = [];
+        listValidTokenJSON = require('../../../../validTokens.json');
+        listValidTokenJSON.push({userID: id, token: token, timestamp: timestamp});
+        await fs.promises.writeFile(process.env.listValidTokenPath, JSON.stringify(listValidTokenJSON), 'utf-8')
         return token;
+    }
+
+    async loadListValidToken() {
+        try {
+            let listValidTokenJSON = [];
+            listValidTokenJSON = require('../../../../validTokens.json');
+            return listValidTokenJSON;
+        } catch (err) {
+            return [];
+        }
     }
 }
 
 let AuthUtils = new _AuthUtils();
 
 module.exports = {
-    AuthUtils,
-    validTokens
+    AuthUtils
 };

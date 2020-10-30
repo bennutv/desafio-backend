@@ -1,6 +1,7 @@
 const SuccessCode = require('../../../utils/SuccessCode');
 const Messages = require('../../../utils/Messages');
-const { AuthUtils, validTokens } = require('./AuthUtils');
+const { AuthUtils } = require('./AuthUtils');
+const fs = require('fs');
 
 
 
@@ -17,7 +18,7 @@ class AuthenticationController {
                 res.status(200).json({
                     error: false, 
                     message: Messages.userAuthorized,
-                    token: AuthUtils.geenerateToken(dataCheck.dataUser.userID)
+                    token: await AuthUtils.geenerateToken(dataCheck.dataUser.userID)
                 });
             }else {
                 res.status(401).json({error: true, message: Messages.incorrectEmailPass});
@@ -28,13 +29,13 @@ class AuthenticationController {
         
     }
 
-    onLogout(req, res) {
+    async onLogout(req, res) {
         let { token, userID } = req;
-        
-        let index = validTokens.findIndex(e => e.userID === userID && e.token === token);
-
+        let _validTokens = await AuthUtils.loadListValidToken();
+        let index = _validTokens.findIndex(e => e.userID === userID && e.token === token);
         if(index > -1) {
-            validTokens.splice(index, 1);
+            _validTokens.splice(index, 1);
+            await fs.promises.writeFile(process.env.listValidTokenPath, JSON.stringify(_validTokens), 'utf-8')   
             res.status(200).json({error: false, message: Messages.userLogout})
         }else {
             res.status(200).json({error: false, message: Messages.userAlreadylogout})

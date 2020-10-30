@@ -61,7 +61,7 @@ describe('Auth', () => {
     it('should return status 200 case token is valid', async () => {
 
         let user = await UsersModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.email);
 
 
         const response = await request(app).get('/api/v1/auth/logout')
@@ -73,7 +73,7 @@ describe('Auth', () => {
     it('should return status 401 case logout ', async () => {
 
         let user = await UsersModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.userID);
 
 
         const response = await request(app).get('/api/v1/auth/logout')

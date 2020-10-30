@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const Messages = require('../../utils/Messages'); 
-const { validTokens } = require('../controllers/Authentication/AuthUtils');
+const { AuthUtils } = require('../controllers/Authentication/AuthUtils');
 
 module.exports = async (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -16,7 +16,8 @@ module.exports = async (req, res, next) => {
         const decoded = await promisify(jwt.verify)(token, process.env.APP_SECRET);
         req.userID = decoded.userID;
         req.token = token;
-        let index = validTokens.findIndex(e => e.userID === req.userID && e.token === token);
+        let _validTokens = await AuthUtils.loadListValidToken();
+        let index = _validTokens.findIndex(e => e.userID === req.userID && e.token === token);
         if(index > -1) {
             return next();
         }else {

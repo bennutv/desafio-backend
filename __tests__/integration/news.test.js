@@ -40,7 +40,7 @@ describe('NEWS - TESTS IMPLEMENTATION NEWS API', () => {
     it('should return status 200 case access with valid token header /api/v1/news/get-all', async () => {
 
         let user = await UserModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.userID);
 
         const response = await request(app).get('/api/v1/news/get-all')
         .set('Authorization', `Bearer ${token}`);
@@ -51,7 +51,7 @@ describe('NEWS - TESTS IMPLEMENTATION NEWS API', () => {
     it('should return status 200 case access with valid token header /api/v1/news/get-news', async () => {
 
         let user = await UserModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.userID);
 
         const response = await request(app).get('/api/v1/news/get-news?id=782973')
         .set('Authorization', `Bearer ${token}`);
@@ -62,7 +62,7 @@ describe('NEWS - TESTS IMPLEMENTATION NEWS API', () => {
     it('should return status allNews property in body request /api/v1/news/get-all', async () => {
 
         let user = await UserModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.userID);
 
         const response = await request(app).get('/api/v1/news/get-all')
         .set('Authorization', `Bearer ${token}`);
@@ -73,7 +73,7 @@ describe('NEWS - TESTS IMPLEMENTATION NEWS API', () => {
     it('should return status allNews property in body request /api/v1/news/get-news', async () => {
 
         let user = await UserModel.getUserByEmail('glauber@bennu.com');
-        let token = AuthUtils.geenerateToken(user.dataUser.userID);
+        let token = await AuthUtils.geenerateToken(user.dataUser.userID);
 
         const response = await request(app).get('/api/v1/news/get-news?id=782973')
         .set('Authorization', `Bearer ${token}`);

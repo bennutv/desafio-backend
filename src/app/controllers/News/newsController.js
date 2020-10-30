@@ -17,7 +17,6 @@ class NewsController {
         let { id } = req.query;
         if(id) {
             let response = await NewsModel.getNewsByID(id);
-            console.log("DADOS ==> ", response)
             
             if(!response.error) {
                 res.status(200).json({error: false, message: Messages.success, news: response.dataNew});

@@ -1,0 +1,34 @@
+{
+  "name": "desafio-backend",
+  "version": "1.0.0",
+  "description": "Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js --ignore __tests__  --ignore validTokens.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glauber-FullStackDev/desafio-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glauber-FullStackDev/desafio-backend/issues"
+  },
+  "homepage": "https://github.com/glauber-FullStackDev/desafio-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "jest": "^26.5.2",
+    "nodemon": "^2.0.6",
+    "supertest": "^5.0.0"
+  }
+}

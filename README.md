@@ -41,11 +41,14 @@ Boa sorte e divirta-se!!!
 
 * Instale as dependências
 <br>
+
 `npm install`  ou  `yarn install`
 
 * Rode os testes
 <br>
+
 `npm run test`  ou  `yarn test`
+
 <br>
 <br>
 

@@ -89,12 +89,14 @@ Rodar a imagem criada:
 
 * Rode a aplicação para produção
 <br>
+
 `npm start`  ou  `yarn start`
 
 <br>
 
 * Rode a aplicação para desenvolvimento
 <br>
+
 `npm run dev`  ou  `yarn dev`
 
 <br>

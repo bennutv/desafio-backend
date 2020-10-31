@@ -30,3 +30,95 @@ Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibiliza
 -   **Escolhas técnicas**
 
 Boa sorte e divirta-se!!!
+
+## Instruções Para execução do projeto
+
+<br>
+
+### Rodar os tests unitários e testes de integração
+<hr>
+<br>
+
+* Instale as dependências
+<br>
+`npm install`  ou  `yarn install`
+
+* Rode os testes
+<br>
+`npm run test`  ou  `yarn test`
+<br>
+<br>
+
+### Rodar Aplicação com container Docker
+<hr>
+<br>
+Para rodar a aplicação no docker, caso você tenha instalado o <a href="https://docs.docker.com/compose/">docker-compose</a>. Basta rodar o comando:
+<br>
+<br>
+
+`docker-compose up`.
+
+<br>
+Caso não queira usar o orquestrador <a href="https://docs.docker.com/compose/">docker-compose</a>, você pode subir a imagem manualmente executando os comandos abaixo em sequência:
+
+<br>
+<br>
+
+Montar imagem do container:
+
+ `docker build -t glauber/desafioBennuBr .`
+
+ <br>
+
+Rodar a imagem criada: 
+
+`docker run -p 3000:3000 -d glauber/desafioBennuBr`
+
+<br>
+
+### Rodar Aplicação diretamente na máquina
+<hr>
+
+<br>
+
+* Instale as dependências
+<br>
+`npm install`  ou  `yarn install`
+
+<br>
+
+* Rode a aplicação para produção
+<br>
+`npm start`  ou  `yarn start`
+
+<br>
+
+* Rode a aplicação para desenvolvimento
+<br>
+`npm run dev`  ou  `yarn dev`
+
+<br>
+
+### Documentação da API do desafio
+<hr>
+
+<br>
+
+<a href="https://documenter.getpostman.com/view/7815838/TVYKbwpc">Documentação API - BENNU DESAFIO</a>
+
+<br>
+
+### Collection para POSTMAN
+<hr>
+
+<br>
+
+<a href="https://www.getpostman.com/collections/cf255307af96396963f7">Collection para POSTMAN</a>
+
+<br>
+
+Obrigado pela oportunidade de participar desse processo, espero atender aos requisitos e poder somar junto a vocês.
+
+ 
+
+

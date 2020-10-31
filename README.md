@@ -69,13 +69,13 @@ Caso não queira usar o orquestrador <a href="https://docs.docker.com/compose/">
 
 Montar imagem do container:
 
- `docker build -t glauber/desafioBennuBr .`
+ `docker build -t glauber/desafiobennubr .`
 
  <br>
 
 Rodar a imagem criada: 
 
-`docker run -p 3000:3000 -d glauber/desafioBennuBr`
+`docker run -p 3000:3000 -d glauber/desafiobennubr`
 
 <br>
 

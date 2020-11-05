@@ -1,10 +1,10 @@
-const express = require("express");
-const app = express();
+const app = require("express")();
 const settings = require("./settings/settings");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const logger = require("./infra/logger");
-const redoc = require('redoc-express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./docs/swagger.json');
 const cors = require("cors");
 
 app.use(cors());
@@ -25,18 +25,9 @@ switch (settings.auth) {
 
 // define all routes
 require("./api/routes/users")(app);
+require("./api/routes/news")(app);
 
-app.get('/docs/swagger.yaml', (req, res) => {
-  res.sendFile('./docs/swagger.yaml', { root: '.' });
-});
-
-app.get(
-  "/docs",
-  redoc({
-    title: "API Docs",
-    specUrl: "/docs/swagger.yaml",
-  })
-);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", (req, res, next) => {
   res.json({"message":"Welcome to bennu-challenge API --- Try /docs to explore documentation."})

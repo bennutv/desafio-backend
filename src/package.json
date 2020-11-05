@@ -23,9 +23,9 @@
     "md5": "^2.2.1",
     "memory-cache": "^0.2.0",
     "mocha": "^7.1.1",
-    "redoc-express": "^1.0.0",
     "sequelize": "^5.19.6",
     "sqlite3": "^5.0.0",
+    "swagger-ui-express": "^4.1.4",
     "winston": "^3.2.1"
   },
   "devDependencies": {

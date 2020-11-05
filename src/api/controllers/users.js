@@ -10,7 +10,7 @@ const getAll = async (req, res) => {
     const response = await userRepository.getAllWithCache();
     const hrend = process.hrtime(hrstart);
 
-    logger.info("new getAll request", { elapsedTime: hrend[1] / 1000000 });
+    logger.info("Get All users", { elapsedTime: hrend[1] / 1000000 });
     res.send(response);
   } catch (e) {
     logger.error("database error occurred", { error: `${e}` });
@@ -31,7 +31,7 @@ const getById = async (req, res) => {
     const response = await userRepository.getByIdWithCache(id);
     const hrend = process.hrtime(hrstart);
 
-    logger.info("new find event by name request", {
+    logger.info("Find user request by id", {
       id: id,
       elapsedTime: hrend[1] / 1000000,
     });
@@ -111,12 +111,12 @@ const update = async (req, res) => {
   ) {
     res
       .status(403)
-      .send("Please send id on params and name, email and password on body");
+      .send("Please send id on params and name, email, password and role on body");
     return;
   }
 
   try {
-    const response = await userRepository.update(id, name, email, password);
+    const response = await userRepository.update(id, name, email, password, role);
     const hrend = process.hrtime(hrstart);
 
     logger.info("new find event by name request", {

@@ -39,6 +39,7 @@ Environment Variables:
 | Variable                      | Value                                                                 |
 | ----------------------------- | --------------------------------------------------------------------- |
 | auth                          | basic or jwt                                                          |
+| secret                        | string to be the secret for your jwt authentication                   |
 | server_port                   | 3030                                                                  |
 | database_dialect              | /* one of 'sqlite' - 'mysql' - 'mariadb' - 'postgres' - 'mssql' */    |
 | database_storage              | 'path/to/database.db'  - Only for sqlite                              |
@@ -60,8 +61,17 @@ Environment Variables:
 
 ### Using docker to start
 
+You can just use one command and start to use
+
 ```
 $ docker-compose up
+```
+
+Or you can build the image and run using commands below
+
+```
+$ docker build -t bennu-challenge:latest .
+$ docker run -d -p 3030:3030 bennu-challenge:latest
 ```
 
 ### Installing
@@ -91,5 +101,5 @@ Create a container with the correct image.
 
 * [express](https://expressjs.com/pt-br/) - The web framework used
 * [mongoose](https://mongoosejs.com/) - The elegant mongodb object modeling for node.js
-* [redoc-express](https://www.npmjs.com/package/redoc-express) - The Express Middleware for OpenAPI/Swagger-generated API Reference Documentation
+* [swagger](https://www.npmjs.com/package/redoc-express) - The Express Middleware for OpenAPI/Swagger-generated API Reference Documentation
 * [body-parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware

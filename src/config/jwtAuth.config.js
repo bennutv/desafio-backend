@@ -10,6 +10,7 @@ module.exports = (app) => {
     const authHeader = req.headers.authorization;
     if (!authHeader) {
       next();
+      return;
     }
 
     const parts = authHeader.split(" ");

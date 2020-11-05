@@ -12,10 +12,4 @@ module.exports = (app) => {
   app.route(`/api/users/:id`).put(controller.allowIfLoggedin, controller.grantAccess('updateAny', 'profile'), controller.update);
   app.route(`/api/users/:id`).delete(controller.allowIfLoggedin, controller.grantAccess('deleteAny', 'profile'), controller.remove);
 
-  // app.route(`/api/users`).get(controller.getAll);
-  // app.route(`/api/users/:id`).get(controller.getById);
-  // app.route(`/api/users/`).post(controller.create);
-  // app.route(`/api/users/:id`).put(controller.update);
-  // app.route(`/api/users/:id`).delete(controller.remove);
-
 };

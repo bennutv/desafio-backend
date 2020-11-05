@@ -99,7 +99,16 @@ Create a container with the correct image.
 
 ## Built With
 
-* [express](https://expressjs.com/pt-br/) - The web framework used
-* [mongoose](https://mongoosejs.com/) - The elegant mongodb object modeling for node.js
-* [swagger](https://www.npmjs.com/package/redoc-express) - The Express Middleware for OpenAPI/Swagger-generated API Reference Documentation
-* [body-parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware
+* [express](https://expressjs.com/pt-br/) - The web framework used.
+* [sequelize](https://sequelize.org/) - Sequelize is a promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server.
+* [swagger](https://www.npmjs.com/package/swagger-ui-express) - This module allows you to serve auto-generated swagger-ui generated API docs from express, based on a swagger.json file.
+* [body-parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
+* [cookie-parser](https://www.npmjs.com/package/cookie-parser) - Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+* [cors](https://www.npmjs.com/package/cors) - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+* [dotenv](https://www.npmjs.com/package/dotenv) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.
+* [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - This was developed against draft-ietf-oauth-json-web-token-08. It makes use of node-jws.
+* [lodash](https://www.npmjs.com/package/lodash) - The Lodash library exported as Node.js modules.
+* [md5](https://www.npmjs.com/package/md5) - A JavaScript function for hashing messages with MD5.
+* [memory-cache](https://www.npmjs.com/package/memory-cache) - A simple in-memory cache for node.js.
+* [sqlite3](https://www.npmjs.com/package/sqlite3) - Asynchronous, non-blocking SQLite3 bindings for Node.js.
+* [winston](https://www.npmjs.com/package/winston) - A logger for just about everything.

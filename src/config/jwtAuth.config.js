@@ -3,8 +3,6 @@ const settings = require("../settings/settings");
 const userRepository = require("../api/repository/users");
 
 module.exports = (app) => {
-  require("../api/routes/jwtAuth")(app);
-
   app.use(async (req, res, next) => {
 
     const authHeader = req.headers.authorization;
@@ -30,6 +28,7 @@ module.exports = (app) => {
       next();
     });
 
-
   });
+
+  require("../api/routes/jwtAuth")(app);
 }

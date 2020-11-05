@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
     res.send(response);
   } catch (e) {
     logger.error("database error occurred", { error: `${e}` });
-    res.status(500).send({ error: "Could not get all users" });
+    res.status(500).send({ error: "Could not get all news" });
   }
 };
 
@@ -31,6 +31,11 @@ const getById = async (req, res) => {
     const response = await newsRepository.getByIdWithCache(id);
     const hrend = process.hrtime(hrstart);
 
+    if (sanitizeService.checkIfEmpty(response)) {
+      res.status(404).send(`News with id ${id} not found.`);
+      return;
+    }
+
     logger.info("Find news request by id", {
       id: id,
       elapsedTime: hrend[1] / 1000000,
@@ -41,7 +46,7 @@ const getById = async (req, res) => {
       error: `${e}`,
       id: id,
     });
-    res.status(500).send({ error: "Could not get user" });
+    res.status(500).send({ error: "Could not get news" });
   }
 };
 

@@ -19,7 +19,7 @@ const _getAll = async () => {
 
 const _getById = async (id) => {
   try {
-    const newsFound = news.find(x => x.id === id);
+    const newsFound = news.find(x => x.id == id);
     return newsFound;
   }catch(error){
     throw Error(error);

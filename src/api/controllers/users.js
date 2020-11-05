@@ -31,6 +31,11 @@ const getById = async (req, res) => {
     const response = await userRepository.getByIdWithCache(id);
     const hrend = process.hrtime(hrstart);
 
+    if (sanitizeService.checkIfEmpty(response)) {
+      res.status(404).send(`User with id ${id} not found.`);
+      return;
+    }
+
     logger.info("Find user request by id", {
       id: id,
       elapsedTime: hrend[1] / 1000000,

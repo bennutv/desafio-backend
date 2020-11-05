@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --exit",
     "start": "node server.js"
   },
   "author": "Alessandro Faletti",
@@ -12,8 +11,6 @@
   "dependencies": {
     "accesscontrol": "^2.2.1",
     "body-parser": "^1.19.0",
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -22,14 +19,9 @@
     "lodash": "latest",
     "md5": "^2.2.1",
     "memory-cache": "^0.2.0",
-    "mocha": "^7.1.1",
     "sequelize": "^5.19.6",
     "sqlite3": "^5.0.0",
     "swagger-ui-express": "^4.1.4",
     "winston": "^3.2.1"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.2",
-    "prettier": "1.18.2"
   }
 }

@@ -1,0 +1,23 @@
+config:
+  target: "http://localhost:3030"
+  http:
+    pool: 1000
+  phases:
+    - duration: 60 
+      arrivalRate: 10000
+scenarios:
+  - flow:
+      - post:
+          url: "/auth/login"
+          json:
+            user: "bennu"
+            pwd: "bennu123"
+          capture:
+            json: "$.token"
+            as: "token"
+          expect:
+            - statusCode: 200
+      - get:
+          url: "/api/news"
+          headers:
+            Authorization: 'Bearer {{ token }}'

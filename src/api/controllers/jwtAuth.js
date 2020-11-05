@@ -6,6 +6,10 @@ const userRepository = require("../repository/users");
 
 const login = async (req, res) => {
   const hrstart = process.hrtime();
+  if(!req.body.user){
+    res.status(403).send("Send user and password on body");
+    return;
+  }
   const user = await userRepository.getByNameWithCache(req.body.user);
   let hrend = process.hrtime(hrstart);
 
@@ -21,7 +25,7 @@ const login = async (req, res) => {
   if (md5(req.body.pwd) == user.password) {
     const id = user.id;
     const token = jwt.sign({ id }, settings.secret, {
-      expiresIn: 300, // expires in 5min
+      expiresIn: 30000000000000000000000000,
     });
     hrend = process.hrtime(hrstart);
     logger.info("New login", {

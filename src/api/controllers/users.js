@@ -71,7 +71,7 @@ const create = async (req, res) => {
       role: role,
       elapsedTime: hrend[1] / 1000000,
     });
-    res.status(403).send("Please send name, email and password on body");
+    res.status(403).send("Please send name, email, password amd role on body");
     return;
   }
 

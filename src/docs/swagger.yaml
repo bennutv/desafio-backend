@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  title: Bennu Challenge API
+  version: "1.0.0"
+  description: 'That's a bennu-challenge api connected in a sqlite database.'
+servers:
+  - url: 'http://localhost:3030'
+paths:
+  /auth/login:
+    post:
+      summary: login
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  auth:
+                    type: boolean
+                  token:
+                    type: string
+              examples:
+                example-1:
+                  value:
+                    auth: true
+                    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRjNTBhMmU5LTI3YWQtNGNmYS1iYjQxLWFjYmI0YTJiYmFhYSIsImlhdCI6MTYwNDUyNjY3NCwiZXhwIjoxNjA0NTI2OTc0fQ.Rsflz_YCG3qXrn5PtIXOlcR_9p94ZqEX-rjh9cw0XRY
+      operationId: post-auth-login
+      description: Endpoint to login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: string
+                pwd:
+                  type: string
+              required:
+                - user
+                - pwd
+            examples:
+              example-admin:
+                value:
+                  user: adminBennu
+                  pwd: Bennu@1233
+              example-user:
+                value:
+                  user: bennu
+                  pwd: bennu123
+        description: ''
+  /auth/logout:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  auth:
+                    type: boolean
+                  token:
+                    type: 'null'
+              examples:
+                example-1:
+                  value:
+                    auth: false
+                    token: null
+        '401':
+          description: Invalid login!
+        '404':
+          description: User not exists
+      operationId: get-auth-logout
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+components:
+  schemas: {}

@@ -872,7 +872,12 @@
             }
           }
         },
-        "operationId": "get-api-news-newsid"
+        "operationId": "get-api-news-newsid",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },

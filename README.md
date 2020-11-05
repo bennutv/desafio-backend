@@ -97,6 +97,14 @@ $ make release
 
 Create a container with the correct image.
 
+## Run loadtest
+
+Install Artillery globally and run the following command:
+
+```
+$ artillery run ./src/test/loadtest.yml
+```
+
 ## Built With
 
 * [express](https://expressjs.com/pt-br/) - The web framework used.

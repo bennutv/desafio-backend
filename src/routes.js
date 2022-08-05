@@ -1,6 +1,6 @@
 import { Router } from "express";
-
 import { NewsRouter } from "./routers/NewsRouter.js";
+import { UserRouter } from "./routers/UserRouter.js";
 
 const router = Router();
 
@@ -11,5 +11,6 @@ router.get("/", (request, response) => {
 });
 
 router.use('/news', NewsRouter)
+router.use('/user', UserRouter)
 
 export { router };

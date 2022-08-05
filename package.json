@@ -1,0 +1,25 @@
+{
+  "name": "bennu-tv-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:fellipehfa/desafio-backend.git",
+  "author": "Fellipe Henrique <fellipehf@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.8.1",
+    "mongoose": "^6.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

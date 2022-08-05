@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  node-web:
+    container_name: rest_api
+    build: .
+    ports:
+      - ${API_PORT}:${API_PORT}
+    depends_on: 
+      - database
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
+  database:
+    container_name: mongodb
+    image: mongo
+    restart: always 
+    ports:
+      - ${DATABASE_MONGO_PORT}:27017
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_MONGO_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_MONGO_ROOT_USERNAME}
+    volumes: 
+      - mongodb:/data/db
+
+volumes: 
+  mongodb:

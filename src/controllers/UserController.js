@@ -1,3 +1,6 @@
+import mongoose from 'mongoose'
+const { ObjectId } = mongoose.Types
+
 import Users from '../models/UsersModel.js'
 import Utils from '../utils/index.js'
 
@@ -12,6 +15,7 @@ class NewsController {
       if(userAlreadyExists) return response.status(404).json({ message: 'User already exists!' })
 
       const newUser = {
+        _id: new ObjectId(),
         email: user.email,
         password: await utils.hashPassword(user.password)
       }

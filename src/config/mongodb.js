@@ -3,13 +3,19 @@ import mongoose from 'mongoose'
 
 dotenv.config()
 
-const MONGO_CONNECTION_URL = process.env.DATABASE_MONGO_CONNECTION_URL
+const { NODE_ENV, DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME } = process.env
 
-mongoose.connect(MONGO_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-  console.log('Successfully connected to the database 🤓');
-}).catch(err => {
-  console.log(err)
-  throw new Error('Could not connect to the database 🥶', err);
-})
+const MONGO_CONNECTION_URL = NODE_ENV === 'DEV' 
+  ? `mongodb://localhost:${DB_PORT}/${DB_NAME}?authSource=admin` 
+  : `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`
 
-mongoose.connection;
+const OPTIONS = {
+  useNewUrlParser: true, 
+  // useUnifiedTopology: true
+}
+
+mongoose.connect(MONGO_CONNECTION_URL, OPTIONS)
+
+mongoose.connection.on('error', () => console.error('Could not connect to the database 🥶'))
+mongoose.connection.once('open', () => console.log('Successfully connected to the database 🤓'))
+

@@ -9,7 +9,6 @@ export default (request, response, next) => {
 
   try{
     const { id } = jwt.verify(token, process.env.TOKEN_SECRET)
-    console.log(id)
 
     request.user = { id }
     return next()

@@ -21,7 +21,7 @@ class NewsController {
       const { id } = request.params
 
       const news = await News.findOne({ id })
-      if (news.length === 0) return response.status(404).json({ message: 'News not found!' })
+      if (!news) return response.status(404).json({ message: 'News not found!' })
 
       return response.status(200).json(news)
     } catch (err) {

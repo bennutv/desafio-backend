@@ -1,25 +1,33 @@
 version: '3.8'
 services:
-  node-web:
-    container_name: rest_api
+  node_api:
+    container_name: node_api
     build: .
     ports:
       - ${API_PORT}:${API_PORT}
+    env_file:
+      - .env
     depends_on: 
       - database
     volumes:
       - .:/home/app
       - /home/app/node_modules
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
 
   database:
     container_name: mongodb
     image: mongo
     restart: always 
     ports:
-      - ${DATABASE_MONGO_PORT}:27017
+      - ${DB_PORT}:27017
     environment: 
-      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_MONGO_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_MONGO_ROOT_USERNAME}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
     volumes: 
       - mongodb:/data/db
 

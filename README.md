@@ -51,7 +51,7 @@ To build the container again:
 docker-compose up --build
 ```
 
-If everything gonnes right, you will see logs like that:
+If everything went well, you will see logs like that:
 ```
 node_api    | 19:25:09 0|server  | Server's running on port 3000! ⚡️⚡️⚡️⚡️
 node_api    | 19:25:09 0|server  | http://localhost:3000
@@ -69,7 +69,7 @@ After that, just run:
 ```
 npm run dev
 ```
-If everything gonnes right, you will see logs like that:
+If everything went well, you will see logs like that:
 ```
 Server's running on port 3000! ⚡️⚡️⚡️⚡️
 http://localhost:3000

@@ -1,4 +1,4 @@
-[
+const newsArray = [
     {
         "id": 782973,
         "publisher_name": "Correio do Povo",
@@ -35,7 +35,7 @@
     {
         "id": 782794,
         "publisher_name": "New York Times",
-        "title": "A diva Julia Bullock vive um momento importante de sua carreira",
+        "title": "A diva Julia Bullock vive um momento constante de sua carreira",
         "subtitle": "LONDRES – Julia Bullock estava resfriada.",
         "image_url": "https://bobcontents.bennuapp.com.br/images/news/new-york-times/201910311633515dbb371fdd345.jpg",
         "date": "2019-10-31 11:30:27",
@@ -66,3 +66,5 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/correio_povo/logo-color.svg"
     }
 ]
+
+export default newsArray

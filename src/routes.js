@@ -13,6 +13,6 @@ router.get("/", (request, response) => {
 
 router.use('/news', NewsRouter)
 router.use('/user', UserRouter)
-router.use('/login', AuthRouter)
+router.use('/auth', AuthRouter)
 
 export { router };

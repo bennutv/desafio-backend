@@ -29,4 +29,60 @@ Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibiliza
 -   **Histórico de commits**
 -   **Escolhas técnicas**
 
+### :computer: Technologies
+
+* [Node.js](https://nodejs.org/en/)
+
+### :sparkles: Features
+
+The application has the following features:
+- [x] Login
+- [x] Logout with JWT
+- [x] List news with JWT
+- [x] List details of a news with JWT
+
+
+### 🤔 How to get this project?
+Clone this project repository:
+```bash
+$ git clone https://github.com/MarceloAnjs/desafio-backend.git
+
+#Enter in `desafio-backend` folder:
+
+$ cd desafio-backend
+```
+
+### :construction: Prerequisites
+* **Docker**: 🚨 If you don't have Docker in your machine, you can install it [here](https://docs.docker.com/engine/install/).
+* **Docker-Compose**: 🚨 If you don't have Docker-Compose in your machine, you can install it [here](https://docs.docker.com/compose/install/).
+
+### 🐳 Run application
+
+After install Docker and Docker-Compose:
+
+- run the following command: 
+```
+$ docker-compose up
+```
+
+#### 🎰 How run
+* First you will need to use one of the following tools
+* [Insomnia](https://insomnia.rest/download)
+* [Posman](https://www.postman.com)
+
+* The routes of the application is
+```
+GET  http://localhost:3000/
+
+POST  http://localhost:3000/login
+
+POST  http://localhost:3000/logout
+
+GET  http://localhost:3000/news
+
+GET  http://localhost:3000/news/:id
+
+```
+
+
 Boa sorte e divirta-se!!!

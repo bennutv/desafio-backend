@@ -1,0 +1,8 @@
+{
+  "name": "desafio-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MarceloAnjs/desafio-backend.git",
+  "author": "MARCELO AUGUSTO MARTINS SILVA DOS ANJOS <marcelo.anjos@discente.ufma.br>",
+  "license": "MIT"
+}

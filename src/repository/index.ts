@@ -1,1 +1,2 @@
-export * from "./LoginUserRepository"
+export * from './LoginUserRepository';
+export * from './NewsRepository';

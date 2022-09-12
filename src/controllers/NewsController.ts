@@ -6,20 +6,20 @@ import {
   Req,
 } from 'routing-controllers';
 import { Request } from 'express';
-import { LoginService } from '../service/Index';
+import { NewsService } from '../service/Index';
 import {TokenDecoder} from "../middlewares"
 
 @JsonController()
 export class NewsController {
   constructor() {}
-
+  private newsService:NewsService = new NewsService()
   @Get("/news")
   @UseBefore(TokenDecoder)
-  async ListAllnews(
+  async ListAllNews(
     @Req() req: Request | any
   ){
-    console.log(req.userId)
-    return {ok:true, user:req.userId}
+    const allNews = this.newsService.listAllNews()
+    return allNews
   }
 
 }

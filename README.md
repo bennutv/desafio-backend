@@ -1,32 +1,70 @@
-# Desafio BennuBR de Backend
 
-Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:
+## Documentação da API
 
-- Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-- Rota para Logout (rota autenticada com _JWT_);
-- Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
-- Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
+### Isso dever se realizado para conseguir usar o projeto local
 
-## Requisitos
--   Forkar esse desafio e criar o seu projeto (ou workspace) usando a sua versão desse repositório, tão logo acabe o desafio, submeta um pull request.
--   O código precisa rodar em macOS ou Ubuntu (preferencialmente como container Docker)
--   Para executar seu código, deve ser preciso apenas rodar os seguintes comandos:
-    -   git clone \$seu-fork
-    -   cd \$seu-fork
-    -   comando para instalar dependências
-    -   comando para executar a aplicação
--   A API pode ser escrita com ou sem a ajuda de _frameworks_
-    -   Se optar por usar um _framework_ que resulte em _boilerplate code_, assinale no README qual pedaço de código foi escrito por você. Quanto mais código feito por você, mais conteúdo teremos para avaliar.
--   A API precisa suportar um volume de 1000 requisições por segundo em um teste de estresse.
+    1 - npm install -D (Para instalar as dependencias de dev)
+    2 - Você tem que ter o banco mysql instalado na sua máquina
+    3 - npm run dev (Para executar o projeto)
+    4- Para executar as migrations rode esse comando ( npm run typeorm -- migration:run -d src/database/dataSource.ts )
 
-## Critério de avaliação
+#### Cadastro na plataforma
 
--   **Organização do código**
--   **Clareza**
--   **Assertividade**
--   **Legibilidade do código**
--   **Segurança**
--   **Histórico de commits**
--   **Escolhas técnicas**
+```http
+ POST /register
+```
 
-Boa sorte e divirta-se!!!
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` |  |
+| `senha`      | `string` |  |
+
+
+#### LOgin na plataforma
+
+```http
+ POST /auth
+```
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` |  |
+| `senha`      | `string` |  |
+
+#### Logout na plataforma
+
+```http
+ GET /logout
+```
+
+#### Cria noticia
+
+```http
+  POST /createNews
+```
+Se encontra no arquivo news.json
+
+#### Retorna todas as noticias
+
+```http
+  GET /find
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `token`      | `string` | **Obrigatório**. token é gerado quando você realiza o login |
+
+
+#### Retorna todas as noticias com o Id informado
+
+```http
+  GET /findNewsById
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `token`      | `string` | **Obrigatório**. token é gerado quando você realiza o login |
+| `id`      | `string` | **Obrigatório**. Informar o Id da noticia |
+
+##### OBS: A cópia do Bd está na raiz do projeto(ARQUIVO: sql.sql)
+
+##### Utilizei o Typeorm com o driver mysql, pois acabei tendo problema com meu mongo local.

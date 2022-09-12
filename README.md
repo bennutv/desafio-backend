@@ -29,4 +29,7 @@ Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibiliza
 -   **Histórico de commits**
 -   **Escolhas técnicas**
 
+## Para iniciar executar
+-   **npm install**
+-   **npm start**
 Boa sorte e divirta-se!!!

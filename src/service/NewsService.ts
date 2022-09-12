@@ -12,5 +12,12 @@ export class NewsService {
       return {msg:"Not Autorized", statuscode:401}
     }
   }
+  async newsById(id:number) {
+    try{
+      return await this.newsRepository.newsById(id)
+    }catch(err){
+      return {msg:"Not Autorized", statuscode:401}
+    }
+  }
 
 }

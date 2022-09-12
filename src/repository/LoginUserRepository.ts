@@ -44,7 +44,6 @@ export class LoginRepository {
     };
     try {
       const { username, email } = newUser;
-      console.log(email)
       if (await UserModel.findOne({ username })) {
         return { error: `Error, ${username} já cadastrado`,statuscode:400 };
       }

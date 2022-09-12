@@ -2,9 +2,9 @@
 
 Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:
 
-- Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-- Rota para Logout (rota autenticada com _JWT_);
-- Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
+- OK Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
+- OK Rota para Logout (rota autenticada com _JWT_);
+- OK Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
 - Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
 
 ## Requisitos

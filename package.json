@@ -1,0 +1,8 @@
+{
+  "name": "desafio-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/felipesilvarosa/desafio-backend.git",
+  "author": "Felipe Rosa <felipesrosa@gmail.com>",
+  "license": "MIT"
+}

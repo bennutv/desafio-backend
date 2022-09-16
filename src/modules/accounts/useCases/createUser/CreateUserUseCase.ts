@@ -1,7 +1,11 @@
 import { hash } from "bcryptjs";
 
 import { AppError } from "../../../../shared/errors/AppError";
-import { ICreateUserDTO } from "../../dto/ICreateUserDTO";
+import { TokenUtils } from "../../../../shared/utils/token";
+import {
+  ICreateUserDTO,
+  ICreateUserResponseDTO,
+} from "../../dto/ICreateUserDTO";
 import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 
 class CreateUserUseCase {
@@ -9,11 +13,28 @@ class CreateUserUseCase {
   async execute({ name, email, password }: ICreateUserDTO) {
     const userFound = await this.accountsRepository.findByEmail(email);
     if (userFound) {
-      throw new AppError("Email já cadastrado", 400);
+      throw new AppError("Email already in use", 400);
     }
     const passwordHash = await hash(password, 8);
 
-    this.accountsRepository.create({ name, email, password: passwordHash });
+    const userCreated = await this.accountsRepository.create({
+      name,
+      email,
+      password: passwordHash,
+    });
+
+    // eslint-disable-next-line no-underscore-dangle
+    const token = TokenUtils.createJWT(userCreated._id.toString());
+
+    const response: ICreateUserResponseDTO = {
+      user: {
+        name,
+        email,
+      },
+      token,
+    };
+
+    return response;
   }
 }
 

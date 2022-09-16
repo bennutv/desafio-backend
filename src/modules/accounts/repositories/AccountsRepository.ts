@@ -16,7 +16,8 @@ class AccountsRepository implements IAccountsRepository {
   }
 
   async create({ name, email, password }: ICreateUserDTO) {
-    this.model.create({ name, email, password });
+    const account = await this.model.create({ name, email, password });
+    return account;
   }
 
   async findByEmail(email: string): Promise<IAccountDTO> {

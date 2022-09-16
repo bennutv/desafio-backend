@@ -1,5 +1,3 @@
-import mongoose, { Model } from "mongoose";
-
 import { IAccountDTO } from "../dto/IAccountDTO";
 import { ICreateUserDTO } from "../dto/ICreateUserDTO";
 import { AccountsModel } from "../entities/Accounts";

@@ -1,6 +1,5 @@
 import express from "express";
 
-import env from "../../../config/env";
 import ErrorHandler from "../middleware/ErrorHandler";
 import { router } from "./routes";
 

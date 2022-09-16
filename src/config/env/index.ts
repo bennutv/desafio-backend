@@ -7,6 +7,7 @@ const mongoDB = {
 };
 const config = {
   port: process.env.PORT,
+  secret: process.env.JWTSECRET,
 };
 const env = { mongoDB, config };
 

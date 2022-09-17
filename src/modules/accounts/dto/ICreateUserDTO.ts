@@ -4,11 +4,4 @@ interface ICreateUserDTO {
   password: string;
 }
 
-interface ICreateUserResponseDTO {
-  user: {
-    name: string;
-    email: string;
-  };
-  token: string;
-}
-export { ICreateUserDTO, ICreateUserResponseDTO };
+export { ICreateUserDTO };

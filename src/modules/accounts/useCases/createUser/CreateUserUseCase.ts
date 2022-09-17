@@ -2,10 +2,7 @@ import { hash } from "bcryptjs";
 
 import { AppError } from "../../../../shared/errors/AppError";
 import { TokenUtils } from "../../../../shared/utils/token";
-import {
-  ICreateUserDTO,
-  ICreateUserResponseDTO,
-} from "../../dto/ICreateUserDTO";
+import { ICreateUserDTO } from "../../dto/ICreateUserDTO";
 import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 
 class CreateUserUseCase {
@@ -26,15 +23,7 @@ class CreateUserUseCase {
     // eslint-disable-next-line no-underscore-dangle
     const token = TokenUtils.createJWT(userCreated._id.toString());
 
-    const response: ICreateUserResponseDTO = {
-      user: {
-        name,
-        email,
-      },
-      token,
-    };
-
-    return response;
+    return token;
   }
 }
 

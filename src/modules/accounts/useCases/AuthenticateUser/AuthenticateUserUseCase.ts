@@ -2,16 +2,13 @@ import { compare } from "bcryptjs";
 
 import { AppError } from "../../../../shared/errors/AppError";
 import { TokenUtils } from "../../../../shared/utils/token";
-import {
-  IAuthenticateUserRequestDTO,
-  IAuthenticateUserResponseDTO,
-} from "../../dto/IAuthenticateUserDTO";
+import { IAuthenticateUserDTO } from "../../dto/IAuthenticateUserDTO";
 import { AccountsRepository } from "../../repositories/AccountsRepository";
 
 class AuthenticateUserUseCase {
   constructor(private accountRepository: AccountsRepository) {}
 
-  async execute({ email, password }: IAuthenticateUserRequestDTO) {
+  async execute({ email, password }: IAuthenticateUserDTO) {
     const user = await this.accountRepository.findByEmail(email);
     if (!user) {
       throw new AppError("Incorrect email or password", 403);
@@ -26,15 +23,7 @@ class AuthenticateUserUseCase {
     // eslint-disable-next-line no-underscore-dangle
     const token = TokenUtils.createJWT(user._id.toString());
 
-    const response: IAuthenticateUserResponseDTO = {
-      user: {
-        name: user.name,
-        email: user.email,
-      },
-      token,
-    };
-
-    return response;
+    return token;
   }
 }
 

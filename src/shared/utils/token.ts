@@ -1,4 +1,4 @@
-import { sign } from "jsonwebtoken";
+import { sign, decode, verify } from "jsonwebtoken";
 
 import env from "../../config/env";
 
@@ -11,6 +11,12 @@ class TokenUtils {
     });
 
     return token;
+  }
+
+  static getIdFromJWT(token: string): string {
+    verify(token, env.config.secret);
+    const decodedToken = decode(token);
+    return decodedToken.sub;
   }
 }
 

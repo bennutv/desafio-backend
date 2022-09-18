@@ -3,7 +3,6 @@ interface IAccountDTO {
   name: string;
   email: string;
   password?: string;
-  loggedIn?: boolean;
 }
 
 export { IAccountDTO };

@@ -37,8 +37,6 @@ class AuthenticateUserUseCase {
       this.secretRefreshToken
     );
 
-    await this.accountRepository.updateLogin(user._id, true);
-
     const response = {
       refreshToken,
       token,

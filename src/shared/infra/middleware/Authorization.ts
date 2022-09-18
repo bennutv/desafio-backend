@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
 import env from "../../../config/env";
-import { AccountsRepository } from "../../../modules/accounts/repositories/AccountsRepository";
 import { TokenUtils } from "../../utils/token";
 
 const isPublicRoute = ({ method, path }: Request) => {
@@ -16,10 +15,7 @@ const isPublicRoute = ({ method, path }: Request) => {
   return publicRoutes[method]?.some((route) => path === route);
 };
 
-const expireAuthToken = env.token.jwtTimeToExpireAuth;
-const expireRefreshToken = env.token.jwtTimeToExpireRefresh;
 const secretAuthToken = env.token.jwtSecretAuth;
-const secretRefreshToken = env.token.jwtSecretRefresh;
 
 class Authorization {
   static async checkAuth(req: Request, res: Response, next: NextFunction) {
@@ -33,8 +29,6 @@ class Authorization {
 
     try {
       const id = TokenUtils.getIdFromJWT(token, secretAuthToken);
-      const user = await AccountsRepository.getInstance().findById(id);
-      if (!user.loggedIn) return res.status(401).end();
       req.headers.userId = id;
       return next();
     } catch {

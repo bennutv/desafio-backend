@@ -24,10 +24,6 @@ class AccountsRepository implements IAccountsRepository {
     return account;
   }
 
-  async updateLogin(id: string, loggedIn: boolean) {
-    await this.model.findByIdAndUpdate(id, { loggedIn });
-  }
-
   async findById(id: string): Promise<IAccountDTO> {
     const account = (await this.model.findById(id).lean()) as IAccountDTO;
     return account;

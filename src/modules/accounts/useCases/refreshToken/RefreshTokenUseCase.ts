@@ -1,5 +1,6 @@
 import env from "../../../../config/env";
 import { AppError } from "../../../../shared/errors/AppError";
+import { AccountErrors } from "../../../../shared/errors/ErrosEnum";
 import { TokenUtils } from "../../../../shared/utils/token";
 import { IAccountsRepository } from "../../repositories/IAccountsRepository";
 
@@ -14,7 +15,7 @@ class RefreshTokenUseCase {
 
     const user = await this.accountRepository.findById(id);
     if (!user) {
-      throw new AppError("User not found", 404);
+      throw new AppError(AccountErrors.USER_NOT_FOUND, 404);
     }
 
     const token = TokenUtils.createJWT(

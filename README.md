@@ -2,31 +2,93 @@
 
 Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:
 
-- Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-- Rota para Logout (rota autenticada com _JWT_);
-- Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
-- Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
+[X] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
+[X] Rota para Logout (rota autenticada com _JWT_);
+[X] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
+[X] Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
 
-## Requisitos
--   Forkar esse desafio e criar o seu projeto (ou workspace) usando a sua versão desse repositório, tão logo acabe o desafio, submeta um pull request.
--   O código precisa rodar em macOS ou Ubuntu (preferencialmente como container Docker)
--   Para executar seu código, deve ser preciso apenas rodar os seguintes comandos:
-    -   git clone \$seu-fork
-    -   cd \$seu-fork
-    -   comando para instalar dependências
-    -   comando para executar a aplicação
--   A API pode ser escrita com ou sem a ajuda de _frameworks_
-    -   Se optar por usar um _framework_ que resulte em _boilerplate code_, assinale no README qual pedaço de código foi escrito por você. Quanto mais código feito por você, mais conteúdo teremos para avaliar.
--   A API precisa suportar um volume de 1000 requisições por segundo em um teste de estresse.
+## Para rodar o projeto
+- git clone https://github.com/felipesilvarosa/desafio-backend.git
+- cd \desafio-backend
+- docker-compose up
 
-## Critério de avaliação
+## Rotas da aplicação
+- Accounts
+    - post /accounts
+        - Rota para criação de nova contas
+            - body:
+                - {
+                    name,
+                    password,
+                    email
+                  }
+            
+    - post /accounts/auth
+        - Rota para login
+            - body:
+                - {
+                    email,
+                    password,
+                  }
+            - response:
+                {
+                    data: {
+                        tokens: {
+                            token
+                            refreshToken
+                        }
+                    }
+                    message,
+                    status
+                }
+    - post /accounts/token/refresh
+        - Rota para dar refresh no token de autenticação
+            - body
+                - {
+                    refreshToken
+                  }
+    - delete /accounts/logout
+        - Rota para "deslogar"
+            - headers
+              - Authorization: Bearer Token
 
--   **Organização do código**
--   **Clareza**
--   **Assertividade**
--   **Legibilidade do código**
--   **Segurança**
--   **Histórico de commits**
--   **Escolhas técnicas**
+- News
+    - get /news/list
+        - Rota para buscar listas de noticias
+            - headers
+              - Authorization: Bearer Token
+            - response:
+                {
+                    data:[
+                        {
+                            _id,
+                            title
+                        }
+                    ],
+                     message,
+                    status
+                } 
+    - get /news/list/:id
+        - Rota para buscar noticia pelo id
+            - headers
+              - Authorization: Bearer Token
+            - response:
+                {
+                    data:[
+                        {
+                            _id,
+                            publisher_name,
+                            title,
+                            subtitle,
+                            image_url,
+                            date,
+                            publisher_media,
+                            news_category_id,
+                            publisher_media_2
+                        }
+                    ],
+                     message,
+                    status
+                }
 
-Boa sorte e divirta-se!!!
+

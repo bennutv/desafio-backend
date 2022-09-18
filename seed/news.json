@@ -1,6 +1,6 @@
 [
     {
-        "id": 782973,
+        "_id": 782973,
         "publisher_name": "Correio do Povo",
         "title": "Ex-paciente transplantada do Clínicas retribui gratidão às crianças internadas",
         "subtitle": "Clarissa Auler recebeu um coração em agosto e nesta quarta-feira, ela voltou ao hospital para agradecer",
@@ -11,7 +11,7 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/correio_povo/logo-color.svg"
     },
     {
-        "id": 782909,
+        "_id": 782909,
         "publisher_name": "New York Times",
         "title": "As manifestações em Hong Kong podem não ter fim à vista",
         "subtitle": "HONG KONG – As manifestações em Hong Kong estão cada vez mais violentas e sua resolução provavelmente ficará a cargo de um grupo influente de líderes locais aliados a Pequim.",
@@ -22,7 +22,7 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/new-york-times-label-color.png"
     },
     {
-        "id": 782869,
+        "_id": 782869,
         "publisher_name": "O Povo",
         "title": "Mulher com fantasia de Halloween sofre acidente de carro e médicos pensam que ela morreu",
         "subtitle": "No momento em que os médicos chegaram, encontraram a estudante com um enorme ferimento na cabeça e banhada de sangue",
@@ -33,7 +33,7 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/o_povo/logo-color.svg"
     },
     {
-        "id": 782794,
+        "_id": 782794,
         "publisher_name": "New York Times",
         "title": "A diva Julia Bullock vive um momento importante de sua carreira",
         "subtitle": "LONDRES – Julia Bullock estava resfriada.",
@@ -44,7 +44,7 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/new-york-times-label-color.png"
     },
     {
-        "id": 782516,
+        "_id": 782516,
         "publisher_name": "Estado de Minas",
         "title": "Peugeot e Fiat-Chrysler iniciam projeto de fusão e prometem não fechar fábricas",
         "subtitle": "Objetivo é criar a quarta maior empresa do mundo do setor de automóveis. Acordo foi aprovado por unanimidade ",
@@ -55,7 +55,7 @@
         "publisher_media_2": "https://bobcontents.bennuapp.com.br/publisher_medias/estado_minas/logo-color.svg"
     },
     {
-        "id": 782476,
+        "_id": 782476,
         "publisher_name": "Correio do Povo",
         "title": "Loterias da Caixa poderão ter preços reajustados a partir de janeiro",
         "subtitle": "A aposta simples da Mega-Sena passará dos atuais R$ 3,5 para R$ 4,5",

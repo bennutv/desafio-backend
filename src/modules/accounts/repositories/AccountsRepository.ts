@@ -1,5 +1,4 @@
 import { IAccountDTO } from "../dto/IAccountDTO";
-import { ICreateUserDTO } from "../dto/ICreateUserDTO";
 import { AccountsModel } from "../entities/Accounts";
 import { IAccountsRepository } from "./IAccountsRepository";
 
@@ -15,13 +14,22 @@ class AccountsRepository implements IAccountsRepository {
     return AccountsRepository.INSTANCE;
   }
 
-  async create({ name, email, password }: ICreateUserDTO) {
-    const account = await this.model.create({ name, email, password });
+  async create(data: IAccountDTO) {
+    const account = await this.model.create(data);
     return account;
   }
 
   async findByEmail(email: string): Promise<IAccountDTO> {
     const account = (await this.model.findOne({ email }).lean()) as IAccountDTO;
+    return account;
+  }
+
+  async updateLogin(id: string, loggedIn: boolean) {
+    await this.model.findByIdAndUpdate(id, { loggedIn });
+  }
+
+  async findById(id: string): Promise<IAccountDTO> {
+    const account = (await this.model.findById(id).lean()) as IAccountDTO;
     return account;
   }
 }

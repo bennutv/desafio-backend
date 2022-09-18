@@ -2,10 +2,10 @@
 
 Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibilizará as seguintes rotas:
 
-[X] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
-[X] Rota para Logout (rota autenticada com _JWT_);
-[X] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
-[X] Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
+- [x] Rota para Login, retornando o _JWT_ que será utilizado nas requisições;
+- [x] Rota para Logout (rota autenticada com _JWT_);
+- [x] Rota para listar notícias (rota autenticada com _JWT_) no formato _JSON_;
+- [x] Rota para exibir o detalhe de uma notícia através do _ID_ (rota autenticada com _JWT_) no formato _JSON_;
 
 ## Para rodar o projeto
 - git clone https://github.com/felipesilvarosa/desafio-backend.git

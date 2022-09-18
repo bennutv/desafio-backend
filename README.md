@@ -12,6 +12,21 @@ Contrua uma API em NodeJS, que consultará o arquivo _news.json_ e disponibiliza
 - cd \desafio-backend
 - docker-compose up
 
+## Technologias utilizadas
+ - node 16
+ - TypeScript
+ - mongoDB
+ - express
+ - docker
+ - bcryptjs
+ - dotenv
+ - express
+ - express-async-errors
+ - jsonwebtoken
+ - mongoose
+ - ts-node-dev
+ - uuid
+
 ## Rotas da aplicação
 - Accounts
     - post /accounts

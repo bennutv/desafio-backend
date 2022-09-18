@@ -7,9 +7,15 @@ const mongoDB = {
 };
 const config = {
   port: process.env.PORT,
-  secret: process.env.JWT_SECRET,
   environment: process.env.NODE_ENV,
 };
-const env = { mongoDB, config };
+
+const token = {
+  jwtSecretAuth: process.env.JWT_SECRET,
+  jwtSecretRefresh: process.env.JWT_SECRET_REFRESH,
+  jwtTimeToExpireAuth: process.env.JWT_AUTH_EXPIRE,
+  jwtTimeToExpireRefresh: process.env.JWT_REFRESH_EXPIRE,
+};
+const env = { mongoDB, config, token };
 
 export default Object.freeze(env);
